@@ -6,6 +6,10 @@
 GET   /                   controllers.Application.index
 
 GET   /ajax-call          controllers.Application.ajaxCall
+GET     /signup-call    controllers.Application.signUpCall
+# POST     /new-call/*name   controllers.Application.profileCall(name,fname,mname,lname,password,repassword)
+# POST     /login-Call/:name               controllers.Application.loginCall(name:String)
+# GET     /logout                     controllers.Application.logoutCall
 
 #Javascript Routes
 GET   /javascriptRoutes   controllers.JavascriptRoute.javascriptRoutes

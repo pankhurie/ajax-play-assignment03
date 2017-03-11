@@ -6,13 +6,13 @@ import play.api.mvc.Controller
 import play.api.mvc.EssentialAction
 import play.core.Router.JavascriptReverseRoute
 import play.core.Router._
-import routes.javascript.Application.index
-import routes.javascript.Application.ajaxCall
+import routes.javascript.Application._
+
 
 object JavascriptRoute extends Controller {
 
   /* Application related JavascriptReverse Route will goes here */
-  val appRoutes: List[JavascriptReverseRoute] = List(index, ajaxCall)
+  val appRoutes: List[JavascriptReverseRoute] = List(index, ajaxCall, signUpCall)
 
   /* All JavascriptReverse Route will combine here */
   val javascriptRouters = appRoutes

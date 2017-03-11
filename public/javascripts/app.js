@@ -1,47 +1,125 @@
-$(document).ready(function() {
 
-alert("called");
+$(document).ready(function() {
+//alert("called");
 $("#signin-btn").click(function(){
 
-renderAjaxOne();
+    renderSignIn();
+    var testAjax = jsRoutes.controllers.Application.ajaxCall();
+    	$.ajax({
+    		url : testAjax.url
+    	}).done(function() {
+    		$("body").append("<br/>");
+    		$("body").append("");
+    	}).fail(function() {
+    		$("body").append("<br/>");
+    		$("body").append("");
+    	});
 
-	ajaxCall();
+});
 
-	var testAjax = jsRoutes.controllers.Application.ajaxCall();
-	$.ajax({
-		url : testAjax.url
-	}).done(function() {
-		$("body").append("<br/>");
-		$("body").append("");
-	}).fail(function() {
-		$("body").append("<br/>");
-		$("body").append("");
-	});
+$("#signup-btn").click(function(){
+
+    renderSignUp();
+    var testAjax = jsRoutes.controllers.Application.ajaxCall();
+    	$.ajax({
+    		url : testAjax.url
+    	}).done(function() {
+    		$("body").append("<br/>");
+    		$("body").append("");
+    	}).fail(function() {
+    		$("body").append("<br/>");
+    		$("body").append("");
+    	});
+
+
 });
+
+//$("#submit-signup").click(function(){
+//     renderProfile();
+//     var testAjax = jsRoutes.controllers.Application.ajaxCall();
+//     	$.ajax({
+//     		url : testAjax.url
+//     	}).done(function() {
+//     		$("body").append("<br/>");
+//     		$("body").append("");
+//     	}).fail(function() {
+//     		$("body").append("<br/>");
+//     		$("body").append("");
+//     	});
+//
+//});
+
 });
+
+
+var renderSignIn = function() {
+	var signInCallBack = {
+		success : function(data) {
+			$("#content").html(data);//ajaxSuccess("", data);
+		},
+		error : function(error) {
+			alert(error)
+		}
+	}
+
+	jsRoutes.controllers.Application.ajaxCall().ajax(signInCallBack);
+};
+
+
+var renderSignUp = function() {
+	var signUpCallBack = {
+		success : function(data) {
+			$("#content").html(data);//ajaxSuccess("", data);
+		},
+		error : function(error) {
+			alert(error)
+		}
+	}
+
+	jsRoutes.controllers.Application.signUpCall().ajax(signUpCallBack);
+};
+//
+//var renderProfile = function(){
+//    var profileCallBack = {
+//        success : function(data) {
+//        $("#content").html(data);
+//        },
+//        error : function(error) {
+//        }
+//    }
+//
+//    jsRoutes.controllers.Application.profileCall($('#name').val(),$('#fname').val(), $('#mname').val(),$('#lname').val(),$('#password').val(),$('#repassword').val(),).ajax(profileCallBack);
+//}
+
+
+///////////////////////////////////////////////
+
+
 
 
 var ajaxSuccess = function(action, data) {
      $("#content").html(data);
-	
+
 };
 
 var ajaxError = function(action, error) {
 	alert(action + " : " +error);
 }
-
+//
 var renderAjaxOne = function() {
 	var ajaxCallBack = {
 		success : function(data) {
-			ajaxSuccess("", data);
+			 $("#content").html(data);
 		},
 		error : function(error) {
-			ajaxError("", error);
+			alert(error)
 		}
 	}
 
 	jsRoutes.controllers.Application.ajaxCall().ajax(ajaxCallBack);
 };
+
+//
 
 var renderAjaxTwo = function() {
 	var ajaxCallBack = {

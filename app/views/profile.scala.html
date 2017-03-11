@@ -1,0 +1,30 @@
+@(user: models.User)(implicit request: play.api.mvc.RequestHeader)
+
+<br><br>
+<div class="row container profile">
+    <i>Welcome  @user.name</i></div><br>
+<div class="row container profile">
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>User Name</td>
+            <td>@user.name</td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>@user.fname</td>
+        </tr>
+        <tr>
+            <td>Middle Name</td>
+            <td>@user.mname</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>@user.lname</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <a id="logout" class="btn btn-success">Logout</a>
+    </div>
